@@ -13,6 +13,9 @@ const translations = {
         earningType: "Earning Type:",
         honeygainTitle: "Honeygain",
         monthlyEarning: "Monthly Earning Rate:",
+        sweatcoinTitle: "Sweatcoin",
+        giftCards: "Gift Cards",
+        move2earn: "Move2earn",
     },
     tr: {
         passiveIncome: "PASİF GELİR",
@@ -27,6 +30,9 @@ const translations = {
         earningType: "Kazanç Tipi:",
         honeygainTitle: "Honeygain",
         monthlyEarning: "Aylık Kazanç Oranı:",
+        sweatcoinTitle: "Sweatcoin",
+        giftCards: "Hediye Kartları",
+        move2earn: "Move2earn",
     },
     es: {
         passiveIncome: "INGRESOS PASIVOS",
@@ -41,6 +47,9 @@ const translations = {
         earningType: "Tipo de Ganancia:",
         honeygainTitle: "Honeygain",
         monthlyEarning: "Tasa de Ganancia Mensual:",
+        sweatcoinTitle: "Sweatcoin",
+        giftCards: "Tarjetas de Regalo",
+        move2earn: "Move2earn",
     },
     ru: {
         passiveIncome: "ПАССИВНЫЙ ДОХОД",
@@ -55,6 +64,9 @@ const translations = {
         earningType: "Тип заработка:",
         honeygainTitle: "Honeygain",
         monthlyEarning: "Ежемесячная ставка заработка:",
+        sweatcoinTitle: "Sweatcoin",
+        giftCards: "Подарочные карты",
+        move2earn: "Move2earn",
     },
     hi: {
         passiveIncome: "निष्क्रिय आय",
@@ -69,6 +81,9 @@ const translations = {
         earningType: "कमाई का प्रकार:",
         honeygainTitle: "Honeygain",
         monthlyEarning: "मासिक कमाई दर:",
+        sweatcoinTitle: "Sweatcoin",
+        giftCards: "उपहार कार्ड",
+        move2earn: "Move2earn",
     },
     ar: {
         passiveIncome: "الدخل السلبي",
@@ -83,6 +98,9 @@ const translations = {
         earningType: "نوع الكسب:",
         honeygainTitle: "Honeygain",
         monthlyEarning: "معدل الربح الشهري:",
+        sweatcoinTitle: "Sweatcoin",
+        giftCards: "بطاقات الهدايا",
+        move2earn: "Move2earn",
     }
 };
 
@@ -119,4 +137,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setLanguage(initialLang);
     console.log("TRUSDZEE website loaded.");
+
+    // Category toggle functionality
+    const categories = document.querySelectorAll('.category');
+    categories.forEach(category => {
+        const header = category.querySelector('h2');
+        const content = category.querySelector('.projects-container');
+
+        header.addEventListener('click', () => {
+            category.classList.toggle('active');
+            if (category.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + 40 + 'px';
+                content.style.paddingTop = '10px';
+            } else {
+                content.style.maxHeight = '0';
+                content.style.paddingTop = '0';
+            }
+        });
+    });
 });
